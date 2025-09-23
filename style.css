@@ -1,0 +1,357 @@
+@charset "UTF-8";
+
+@import url(font.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fef3c7;
+    color: #1a1a1a;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(220, 38, 38, 0.1);
+    z-index: 1000;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #dc2626, #ef4444, #f87171);
+    transform-origin: left;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    padding-top: 80px;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.slide-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+}
+
+.main-title {
+    font-family: 'Yeongwol';
+    font-size: clamp(80px, 15vw, 240px);
+    font-weight: normal;
+    letter-spacing: 2px;
+    margin-bottom: 100px;
+    background: linear-gradient(135deg, #dc2626 0%, #ef4444 30%, #f87171 70%, #dc2626 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+    transform: rotate(-3deg);
+    display: inline-block;
+    position: relative;
+}
+
+.main-title::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 10%;
+    right: 10%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #dc2626, #ef4444, #dc2626, transparent);
+    border-radius: 2px;
+    opacity: 0.6;
+    transform: rotate(1deg);
+}
+
+.main-title::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    right: -20px;
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle, #dc2626 40%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: sparkle 2s ease-in-out infinite alternate;
+}
+
+@keyframes sparkle {
+    0% { 
+        opacity: 0.4; 
+        transform: scale(0.8) rotate(0deg); 
+    }
+    100% { 
+        opacity: 0.8; 
+        transform: scale(1.2) rotate(180deg); 
+    }
+}
+
+.header-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 120px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid #fbbf24;
+}
+
+.name-section h2 {
+    font-size: 42px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+}
+
+.copyright {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+    color: #666;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+.contact-section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+}
+
+.contact-item {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 100px;
+    margin-bottom: 120px;
+}
+
+.intro-section {
+    border-right: 1px solid #fbbf24;
+    padding-right: 60px;
+}
+
+.intro-title {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    color: #1a1a1a;
+    line-height: 1.4;
+}
+
+.intro-name {
+    font-size: 48px;
+    font-weight: 300;
+    color: #1a1a1a;
+    line-height: 1.2;
+}
+
+.activities-section {
+    padding-left: 20px;
+}
+
+.activities-list {
+    list-style: none;
+}
+
+.activity-item {
+    display: grid;
+    grid-template-columns: 120px 200px 1fr;
+    gap: 40px;
+    padding: 15px 0;
+    border-bottom: 1px solid #fed7aa;
+    font-size: 14px;
+}
+
+.activity-date {
+    color: #666;
+    font-weight: 400;
+}
+
+.activity-type {
+    color: #1a1a1a;
+    font-weight: 500;
+}
+
+.activity-desc {
+    color: #666;
+}
+
+.projects-section {
+    padding-top: 60px;
+    border-top: 1px solid #fbbf24;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 60px;
+    color: #1a1a1a;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 80px;
+}
+
+.project-item {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-left{
+    position: relative;
+}
+
+.project-number {
+    font-size: 120px;
+    font-weight: 300;
+    color: #fde68a;
+    margin-bottom: 20px;
+    line-height: 0.8;
+}
+
+.project-category {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+.project-title {
+    font-size: 24px;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.project-subtitle {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.project-description {
+    font-size: 14px;
+    color: #888;
+    line-height: 1.6;
+}
+
+.project-item.active .project-number {
+    color: #dc2626;
+}
+
+.project-mockup{
+    width: 350px;
+    position: relative;
+}
+
+.project-mockup img{
+    width: 100%;
+}
+
+.project-mockup .tooltip{
+    position: absolute;
+    bottom: 100%;
+    left: 50%; transform: translate(-50%, -8px);
+    background: #fff; color: #111;
+    font-size: 16px; padding: 6px 10px;
+    border-radius: 6px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+
+    opacity: 0; pointer-events: none;
+    transition: .2s;
+}
+
+.project-mockup .tooltip::after{
+    content: "";
+    position: absolute;
+    top: 100%; left: 50%;transform: translate(-50%, -8px) rotate(45deg);
+    width: 10px;height: 10px; background: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    z-index: -1;
+}
+
+.project-mockup a:hover .tooltip, .project-mockup a:focus .tooltip{
+    opacity: 1; transform: translate(-50%, -12px);
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        padding: 40px 20px;
+    }
+    
+    .header-section {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    
+    .intro-section {
+        border-right: none;
+        border-bottom: 1px solid #fbbf24;
+        padding-right: 0;
+        padding-bottom: 40px;
+    }
+    
+    .contact-info {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .activity-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+}
